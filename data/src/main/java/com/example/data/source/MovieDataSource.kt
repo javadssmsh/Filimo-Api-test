@@ -1,28 +1,34 @@
 package com.example.data.source
 
-import android.util.Log
 import com.example.data.api.MovieApiService
+import com.example.data.mapper.toDomain
+import com.example.domain.base.Error
+import com.example.domain.base.FilimoResult
+import com.example.domain.model.MovieItem
 import javax.inject.Inject
 
 class MovieDataSource @Inject constructor(
     private val movieApiService: MovieApiService
 ) {
 
-    suspend fun getSearchedMovies() {
-
-        val result = movieApiService.getSearchedMovies("javad")
-
-        when {
-            result.isSuccessful -> {
-                result.body()?.let {
-                    for (item in it)
-                        Log.d("getSearchedMovies", "item is  :  ${item.type}")
+    suspend fun getSearchedMovies(): FilimoResult<List<MovieItem>> {
+        return try {
+            val result = movieApiService.getSearchedMovies("javad")
+            when {
+                result.isSuccessful -> {
+                    result.body()?.data?.let {
+                        FilimoResult.Success(it.map { item -> item.toDomain() })
+                    } ?: kotlin.run {
+                        FilimoResult.Error(Error.EmptyResult)
+                    }
                 }
-            }
-            else -> {
-                Log.d("getSearchedMovies", "failed !!")
-            }
+                else -> {
+                    FilimoResult.Error(Error.NotFound)
+                }
 
+            }
+        } catch (e: Exception) {
+            FilimoResult.Error(Error.Internet)
         }
     }
 

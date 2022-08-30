@@ -1,8 +1,6 @@
 package com.example.filimoapitest.di
 
-import android.graphics.Movie
 import com.example.data.api.MovieApiService
-import com.example.data.model.MovieResponse
 import com.example.data.repository.MovieRepository
 import com.example.data.source.MovieDataSource
 import com.example.domain.repository.IMovieRepository
