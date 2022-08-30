@@ -11,8 +11,8 @@ class MovieRepository @Inject constructor(
 ) : IMovieRepository {
 
 
-    override suspend fun getSearchedMovies() : FilimoResult<List<MovieItem>> {
-        return movieDataSource.getSearchedMovies()
+    override suspend fun getSearchedMovies(name :String) : FilimoResult<List<MovieItem>> {
+        return movieDataSource.getSearchedMovies(name)
     }
 
 

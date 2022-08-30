@@ -7,5 +7,5 @@ class MovieUseCase @Inject constructor(
     private val movieRepository: IMovieRepository
 ) {
 
-    suspend fun getSearchedMovies() = movieRepository.getSearchedMovies()
+    suspend fun getSearchedMovies(name :String) = movieRepository.getSearchedMovies(name)
 }

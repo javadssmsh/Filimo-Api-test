@@ -11,9 +11,9 @@ class MovieDataSource @Inject constructor(
     private val movieApiService: MovieApiService
 ) {
 
-    suspend fun getSearchedMovies(): FilimoResult<List<MovieItem>> {
+    suspend fun getSearchedMovies(name :String): FilimoResult<List<MovieItem>> {
         return try {
-            val result = movieApiService.getSearchedMovies("javad")
+            val result = movieApiService.getSearchedMovies(name)
             when {
                 result.isSuccessful -> {
                     result.body()?.data?.let {

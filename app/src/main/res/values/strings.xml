@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FilimoApiTest</string>
+    <string name="imdb_score">امتیاز IMDB :</string>
+    <string name="desired_movie_name">نام فیلم مورد نظر</string>
 </resources>

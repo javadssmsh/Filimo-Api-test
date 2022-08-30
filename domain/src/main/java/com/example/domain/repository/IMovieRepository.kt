@@ -5,5 +5,5 @@ import com.example.domain.model.MovieItem
 
 interface IMovieRepository {
 
-    suspend fun getSearchedMovies() : FilimoResult<List<MovieItem>>
+    suspend fun getSearchedMovies(name :String) : FilimoResult<List<MovieItem>>
 }

@@ -9,8 +9,8 @@ fun MovieResponse.toDomain(): MovieItem {
         type = this.type,
         description = this.attributes.descr,
         rate = this.attributes.imdb_rate,
-        titleEnglish = this.attributes.movie_title,
-        titlePersian = this.attributes.movie_title_en,
+        titleEnglish = this.attributes.movie_title_en,
+        titlePersian = this.attributes.movie_title,
         imageUrl = this.attributes.pic.movie_img_s
     )
 }
