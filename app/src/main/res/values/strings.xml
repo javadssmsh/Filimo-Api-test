@@ -2,4 +2,5 @@
     <string name="app_name">FilimoApiTest</string>
     <string name="imdb_score">امتیاز IMDB :</string>
     <string name="desired_movie_name">نام فیلم مورد نظر</string>
+    <string name="enter_movie_name_correctly">\"لطفا نام فیلم را درست وارد کنید ! \"</string>
 </resources>

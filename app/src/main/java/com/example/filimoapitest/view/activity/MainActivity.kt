@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.getSearchedMovies(inputText)
                 binding.searchBtn.hideKeyboard()
             } else {
-                Toast.makeText(this, "لطفا نام فیلم را درست وارد کنید ! ", Toast.LENGTH_LONG)
+                Toast.makeText(this, getString(R.string.enter_movie_name_correctly), Toast.LENGTH_LONG).show()
             }
         }
     }
